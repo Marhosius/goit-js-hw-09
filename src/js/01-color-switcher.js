@@ -4,6 +4,7 @@ const startBtnEl = document.querySelector('button[data-start]');
 const stopBtnEl = document.querySelector('button[data-stop]');
 
 let fancyInterval = null;
+stopBtnEl.disabled = true;
 
 const startBtnListener = startBtnEl.addEventListener("click", onClickStartFancy);
 const stopBtnListener = stopBtnEl.addEventListener("click", onClickStopFancy);
@@ -14,6 +15,7 @@ function getRandomHexColor() {
 
 function onClickStartFancy() {
     startBtnEl.disabled = true;
+    stopBtnEl.disabled = false;
     bodyEl.style.backgroundColor = `${getRandomHexColor()}`;
 
     fancyInterval = setInterval(() => {
@@ -24,6 +26,7 @@ function onClickStartFancy() {
 
 function onClickStopFancy() {
     startBtnEl.disabled = false;
+    stopBtnEl.disabled = true;
     clearInterval(fancyInterval);
 };
 

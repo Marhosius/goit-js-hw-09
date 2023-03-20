@@ -72,6 +72,11 @@ function onStartActTimer() {
         hoursInfoEl.textContent = addLeadingZero(timer.hours);
         minutesInfoEl.textContent = addLeadingZero(timer.minutes);
         secondsInfoEl.textContent = addLeadingZero(timer.seconds);
+        if (timeMs <= 999) {
+            clearInterval(timerId);
+            Notiflix.Notify.info("СЛАВА");
+            Notiflix.Notify.warning("УКРАЇНІ");
+        }
 
     }, 1000);
 };
